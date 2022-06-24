@@ -1,16 +1,21 @@
+y
 <html>
 
 <head>
     <meta charset='UTF-8' />
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <title>Life Game B.ru</title>
-    <!--projet d'animation pour clip, dérive en life game, dev en cours et à l'arrache 3000
+    <!--projet d'animation pour clip, dérive en life game, dev en cours et à l'arrache 3000 [insomnie 2,3,4 octobre 20]
 obj:
-créer un jeux: un personnage style plateform, 
-le but est de gagner des points de karma, 
-ne pas perdre ses points amour,(gagner des points lors d'une rencontre, les perdre automatiquement au bout d'une min de jeu, car y'a tjr une fin!)
+créer un jeux: un personnage style plateform, (donc commencer par reprogrammer orienté objet)
+le but du "LIFE GAME" est de gagner des points de karma, des points amour,(gagner des points AMour lors d'une rencontre, les perdre automatiquement au bout d'une min de jeu, car that is life!)
+
 gagner des points d'assurance,(en fesant différentes experience)
-conserver ses points ego et les échanger contre des points experience!()
+conserver ses points ego et les échanger contre des points experience!
+
+Suivant nos choix de vie, (cré des algo) certain choix t'améne à une situation plus ou moins utile pour le reste du jeu.
+
+SI ON MEURT, ( à force de mauvais choix) on se réincarne dans un autre perso et dans une autre époque, de nouvelle expérience, de nouvelle attirance (sexuel par ex)
 
 Element a revoir porte le meme nom!
 Revoir le canva entierement pour integrer chaque perso et chaque position ou " action" du "héro"!
@@ -24,10 +29,11 @@ Revoir le canva entierement pour integrer chaque perso et chaque position ou " a
 
     </script>-->
 
-
+        <!--MyDiv-->
         <div id="myDIV">
             <div class="carre">
                 <img width="25%" height="auto" src="src-img\accessoireBackground\LOGO.png">
+                <!--https://github.com/berru-g/berru-g.io/blob/master/life-game/LOGO.png?raw=true-->
                 <p id="demo">Bonjour et bienvenue dans le "Life Game".</p>
                 <p>L'objectif est de gagner des points de 'Karma', d''ego' pour les échanger contre des points 'expérience', Conserver ses points de "santé" en prenant des points "kiff".</p>
                 <p>Welcome to the real life!</p>
@@ -43,6 +49,17 @@ Revoir le canva entierement pour integrer chaque perso et chaque position ou " a
 
                 <button id="start" onclick="startFunction()">Start</button>
 
+                <script>
+                    //myDiv
+                    function startFunction() { ///start
+                        var x = document.getElementById("myDIV");
+                        if (x.style.display === "none") {
+                            x.style.display = "block";
+                        } else {
+                            x.style.display = "none";
+                        }
+                    }
+                </script>
 
                 <p style="font-size:20px;">Game Dev with love by <a class="lien" href="#">Berru</a></p>
             </div>
@@ -111,22 +128,14 @@ Revoir le canva entierement pour integrer chaque perso et chaque position ou " a
             }
         </style>
         <script>
-            //algo indé heure
+            //démo
+            //algo indé te souhaite une bonne journée suivant l'heure
             if (new Date().getHours() > 17) {
                 document.getElementById("demo").innerHTML = "Bonsoir et bienvenue dans le 'Life Game'.";
                 window.style("background-color:black");
             }
         </script>
-        <script>
-            function startFunction() { ///start
-                var x = document.getElementById("myDIV");
-                if (x.style.display === "none") {
-                    x.style.display = "block";
-                } else {
-                    x.style.display = "none";
-                }
-            }
-        </script>
+
 
 
         <!--HEURE--------------------->
@@ -174,19 +183,19 @@ Revoir le canva entierement pour integrer chaque perso et chaque position ou " a
                 <span id="time" style="color:var(--text-color);font-size:18px;font-family:sans-serif;"></span>
 
             </div>
-            <div id="fondd" style="width:100%; height:auto; position:absolute;">
-                <img src="src-img\accessoireBackground\fond-retro.png">
+            <div id="fondd" style="width:100%; height:auto; position:fixed;">
+                <img src="fond-retro.png">
             </div>
             <!--https://github.com/berru-g/berru-g.io/blob/master/life-game/fond-retro.png?raw=true-->
-            <a id="porte" href="" style="width:70px;height:120px; margin-top:310px; margin-left:1120px;border:2px solid #80eeae
-        ;position:absolute;z-index:4;color:white;font-size:18px; ">open</a>
+            <a id="porte" href="https://codepen.io/h-lautre/full/WNrbawy" style="width:70px;height:120px; margin-top:310px; margin-left:1120px;border:2px solid #80eeae
+        ;position:fixed;z-index:4;color:white;font-size:18px; ">open</a>
             <style>
                 #porte:hover {
                     transform: scale(0.9);
                 }
             </style>
             <!--trouver une solut/ a-revoir //---->
-            <div id="premier-plan" style="width:90%; height:auto; position:absolute;z-index:7;bottom:0px;">
+            <div id="premier-plan" style="width:90%; height:auto; position:fixed;z-index:7;bottom:0px;">
                 <img src="src-img\accessoireBackground\POUBELLE.png">
             </div>
             <!--https://github.com/berru-g/berru-g.io/blob/master/life-game/POUBELLE.png?raw=true-->
@@ -280,7 +289,7 @@ Revoir le canva entierement pour integrer chaque perso et chaque position ou " a
                 }
                 
                 #love {
-                    position: absolute;
+                    position: fixed;
                     text-align: right;
                     width: 23%;
                     bottom: 5%;
@@ -298,15 +307,7 @@ Revoir le canva entierement pour integrer chaque perso et chaque position ou " a
                     margin-left: 5px;
                 }
             </style>
-            <script>
-                ////////////a-revoir !!!  
-                /*
-                  function karma() {
-                      var txt;
-                      if (("Karma") == ("🌑🌑🌑🌑"));
-                      alert("Game Over");
-                  }*/
-            </script>
+
             <!----------------------------RESULTAT ALGO-------------------------------->
             <p id="deal" style='color:var(--text-color);font-size:24px;bottom:50px;position:fixed;z-index:6;background-color:#1a1a1a; '>
             </p>
@@ -358,7 +359,7 @@ Revoir le canva entierement pour integrer chaque perso et chaque position ou " a
 
             #modal {
                 z-index: 6;
-                position: absolute;
+                position: fixed;
                 margin-top: 300px;
                 margin-left: 200px;
                 display: flex;
@@ -375,7 +376,7 @@ Revoir le canva entierement pour integrer chaque perso et chaque position ou " a
                     margin-top: 324px;
                     left: 40%;
                     z-index: 5;
-                    position: absolute;
+                    position: fixed;
                 }
                 
                 #dealer:hover {
@@ -391,21 +392,27 @@ Revoir le canva entierement pour integrer chaque perso et chaque position ou " a
                         //document.write("visit my skill -https://codepen.io/h-lautre/");
                         document.getElementById("karma").innerHTML += "🌞";
                         document.getElementById("santé").innerHTML += "💚";
-                        //   document.getElementById("ego").innerHTML += "👑";
+                        document.getElementById("ego").innerHTML += "👑";
+
                     } else { //" " + person +
                         txt = "Accepter! Tu gagne: 1 points de détente, Tu perds: 1 points de santé"; //dans var "text""(pour aligner sur une deuxieme ligne faire "premier mess .n second message .n trois etc")
-                        document.getElementById("santé").innerHTML += "🖤";
+                        //comment suprimer un point? /= ou -= m'affiche "NaN" car valeur non numerique?
+                        //test avec var-- non fonctionnelle
+                        document.getElementById("santé").innerHTML /= "💚";
                         document.getElementById("détente").innerHTML += "🍃";
 
                     }
                     document.getElementById("deal").innerHTML = txt;
+
+
                 }
             </script>
+
 
             <!--Deuxieme perso--------------------------------------C:\Users\glebe\Documents\PROG HTML\life-game------------------------------------------------------>
             <div>
 
-                <btn onclick="myflic()"><img id="flic-pas-bien" src="src-img\npc\flic.png" title="Saluer ?">
+                <btn onclick="myflic()"><img id="flic-pas-bien" src="src-img\npc\flic.png" title="Chifoumi ?">
                     <!--https://github.com/berru-g/berru-g.io/blob/master/life-game/flic.png?raw=true-->
                 </btn>
             </div>
@@ -423,7 +430,7 @@ Revoir le canva entierement pour integrer chaque perso et chaque position ou " a
                     margin-top: 384px;
                     left: 60%;
                     z-index: 6;
-                    position: absolute;
+                    position: fixed;
                 }
                 
                 #flic-pas-bien:hover {
@@ -436,23 +443,85 @@ Revoir le canva entierement pour integrer chaque perso et chaque position ou " a
                     background-color: lightcoral;
                 }
             </style>
+
             <script>
                 function myflic() {
+                    'use strict';
+                    window
+                    var player;
+                    var random;
+                    var computer;
+                    // var gagnant;
                     var txt;
-                    var person = confirm(" Bonjour, Auriez vous vue un homme se ballader avec une guitare ?"); //var "nom" dans l'alert
-                    if (person == null || person == "") {
-                        txt = " Refuser! Lui cracher à la gueule! Perds 1 points de Karma ! *Astuce, enclenche le mode 'zen' pour récupérer 1 point de karma !";
+                    player = window.prompt("Viens on joues à Chifoumi! pierre feuille ou ciseau ?"); //var "nom" dans l'alert        
+                    player = player.toLowerCase();
+                    random = Math.random();
 
-                        document.getElementById("karma").innerHTML += "🌑";
-                        document.getElementById("ego").innerHTML += "👑";
-                    } else { // prompt = " " + person +
-                        txt = "Accepter! Tu gagne: 1 points de karma, -1 de détente  et -1 d'ego! *Astuce, enclenche le mode 'zen' pour récupérer 1 point de karma !";
-                        document.getElementById("karma").innerHTML += "🌞";
-                        document.getElementById("expé").innerHTML += "🔧";
-                        document.getElementById("ego").innerHTML += "🧻";
+                    // 1/3 de chance pour chacun 
+                    if (random < 1 / 3) {
+                        computer = 'pierre';
+                    } else if (random < 2 / 3) {
+                        computer = 'feuille';
+                    } else {
+                        computer = 'ciseau';
                     }
-                    document.getElementById("flic").innerHTML = txt;
 
+                    //definir une égalité
+                    if (computer == player) {
+                        alert("egalité, gagne un point détente !");
+                        document.getElementById("détente").innerHTML += "🍃";
+                    } else if ((computer == 'pierre' && player == 'ciseau') ||
+                        (computer == 'ciseau' && player == 'feuille') ||
+                        (computer == 'feuille' && player == 'pierre')) {
+                        alert("Perdu. Déguage petit et gagne un point expérience !");
+                        //solution n'ont concluante, car je souhaite afficher le result dans "txt"
+                        document.getElementById("expé").innerHTML += "🔧";
+
+                    } else {
+                        alert("Bien joué, tu gagne un point égo !");
+                        document.getElementById("ego").innerHTML += "👑";
+                    }
+                    // txt = "computer" + "player "
+                    //effacer le txt precedent?
+                    // document.getElementById("flic").value = txt;
+                    //document.getElementById("deal"||"flic").deleteData(0, 5);
+                    // document.getElementById("deal"||"flic").innerHTML = hidden;
+                    //document.getElementById("deal").innerHTML = clear.other.txt;
+                    // document.getElementById("flic").innerHTML = txt;  
+
+
+                }
+
+                /*
+                            //TESTE{echange points} non fonctionnel car pas orienté cote objet je pense!!!
+                            function myDealer(){
+                            var dealer;
+                            if ("ego" == "👑👑👑") {
+
+                                confirm(" Veut tu échanger t'es point ego contre des points éxperience? cela te seras utile pour le reste de ta life!");
+                                if (confirm == null) {
+                                    alert(" Peut être plus tard, lorsque la raison aurat prit le dessus !");
+                                    document.getElementById("karma").innerHTML -= "🌞";//comment enlever un points? (indique "NAN")
+                                    document.getElementById("ego").innerHTML += "👑";
+                                } else (confirm = "") {// prompt = " " + person +
+                                    alert("Accepter! Tu est sur le bon chemin pour vivre heureux!");
+                                    document.getElementById("karma").innerHTML += "🌞";
+                                    document.getElementById("expé").innerHTML += "🔧🔧🔧🔧";
+
+                                }    
+                            }
+                        } 
+                */
+            </script>
+            <script>
+                //a-revoir !!!
+                // non fonctionnel car pas orienté cote objet je pense ( gael tu persiste dans le vent!!!!) 
+                function détente() {
+                    var détente;
+                    if ("détente" == "🍃🍃🍃") {
+                        // document.getElementById("détente").innerHTML =="🍃🍃🍃";
+                        alert("Game Over");
+                    }
                 }
             </script>
             <!---------------------////////////////////////////:SPRITE//////////////////////////------------------------------------------------------->
@@ -464,8 +533,8 @@ Revoir le canva entierement pour integrer chaque perso et chaque position ou " a
                     height: 175px;
                     margin-top: 344px;
                     z-index: 5;
-                    position: absolute;
-                    object-position: absolute;
+                    position: fixed;
+                    object-position: fixed;
                 }
                 
                 .right {
@@ -473,25 +542,26 @@ Revoir le canva entierement pour integrer chaque perso et chaque position ou " a
                 }
                 /*https://github.com/berru-g/berru-g.io/blob/master/life-game/walk-perso-fixeD.png?raw=true*/
                 
-                .left {
+                alk-perso- .left {
                     background-image: url(src-img\hero\walk-perso-fixeG.png);
                 }
-                /*teste claque option---*/
+                /* https://github.com/berru-g/berru-g.io/blob/master/life-game/walk-perso-fixeG.png?raw=true*/
+                /*teste claque option-https://github.com/berru-g/berru-g.io/blob/master/life-game/walk-perso-fixeClaque.png?raw=true--*/
                 
                 .claque {
                     background-image: url(src-img\hero\walk-perso-fixeClaque.png);
                 }
-                /*teste zen option---*/
+                /*teste zen option-https://github.com/berru-g/berru-g.io/blob/master/life-game/walk-perso-fixeZen.png?raw=true--*/
                 
                 .zen {
                     background-image: url(src-img\hero\walk-perso-fixeZen.png);
                 }
-                /*teste ---*/
+                /*teste -https://github.com/berru-g/berru-g.io/blob/master/life-game/walk-perso-fixesupersaian.png?raw=true--*/
                 
                 .supersaian {
                     background-image: url(src-img\hero\walk-perso-fixesupersaian.png);
                 }
-                /*teste ---*/
+                /*teste -https://github.com/berru-g/berru-g.io/blob/master/life-game/shot.png?raw=true--*/
                 
                 .shot {
                     background-image: url(src-img\hero\shot.png);
@@ -678,9 +748,9 @@ Revoir le canva entierement pour integrer chaque perso et chaque position ou " a
 
             <script>
                 ///////////////////////////////////////////////////////////////////////////////////////////////////////
-                //script d'origine
+                //script d'origine repimpé 
                 //////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+                var oneTime = true;
                 (function() {
                     var myAudio = document.getElementById('myAudio');
                     var claque = document.getElementById('claque');
@@ -725,6 +795,7 @@ Revoir le canva entierement pour integrer chaque perso et chaque position ou " a
 
                     function walk(e) {
                         var keyCode = e.keyCode;
+
                         if (keyCode === 39) {
                             key.right = true;
                             //
@@ -771,13 +842,17 @@ Revoir le canva entierement pour integrer chaque perso et chaque position ou " a
                             /////////////////////////////////////
                             ////////////////////////////////////
                         }
-                        if (key.zen === true) {
+                        if (key.zen === true) { //&&=é(conditions)
                             trans += 0;
                             translate();
-                            document.getElementById("santé").innerHTML += "💚";
+                            if (oneTime) document.getElementById("santé").innerHTML += "💚";
                             sprite.classList.remove('zen');
                             sprite.classList.add('zen');
-                            sprite.classList.add('zen');
+                            sprite.classList.add('walk-zen');
+                            oneTime = false;
+
+
+                            //sprite.classList.add('zen');
                             /////////////////////////////////////
                             ////////////////////////////////////
                         }
@@ -979,14 +1054,14 @@ Revoir le canva entierement pour integrer chaque perso et chaque position ou " a
     </div>
     <style>
         .share {
-            position: fixed;
+            position: absolute;
             display: flex;
             justify-content: space-around;
             flex-direction: row;
             width: 200px;
             height: 50px;
             bottom: 0px;
-            right: 0px;
+            right: -10%;
             opacity: 1;
         }
         
