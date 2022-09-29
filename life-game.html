@@ -8,20 +8,17 @@
 obj:
 créer un jeux: un personnage style plateform, (donc commencer par reprogrammer orienté objet)
 le but du "LIFE GAME" est de gagner des points de karma, des points amour,(gagner des points AMour lors d'une rencontre, les perdre automatiquement au bout d'une min de jeu, car that is life!)
-
 gagner des points d'assurance,(en fesant différentes experience)
 conserver ses points ego et les échanger contre des points experience!
-
 Suivant nos choix de vie, (cré des algo) certain choix t'améne à une situation plus ou moins utile pour le reste du jeu.
-
 SI ON MEURT, ( à force de mauvais choix) on se réincarne dans un autre perso et dans une autre époque, de nouvelle expérience, de nouvelle attirance (sexuel par ex)
 -->
+
     <body>
         <div id="presentation"></div>
         <div id="myDIV">
             <div class="carre">
                 <img width="25%" height="auto" src="src-img\accessoireBackground\LOGO.png">
-                <!--https://github.com/berru-g/berru-g.io/blob/master/life-game/LOGO.png?raw=true-->
                 <p id="demo">Bonjour et bienvenue dans le "Life Game".</p>
                 <p>L'objectif est de gagner des points de 'Karma', d''ego' pour les échanger contre des points 'expérience', Conserver ses points de "santé" en prenant des points "kiff".</p>
                 <p>Welcome to the real life!</p>
@@ -34,73 +31,23 @@ SI ON MEURT, ( à force de mauvais choix) on se réincarne dans un autre perso e
                     <p> Clique sur les personnages pour avoir une intéraction!
                     </p>
                 </div>
-
                 <button id="start" onclick="startFunction()">Start</button>
-
-                <script>
-                    //myDiv
-                    function startFunction() { ///start
-                        var x = document.getElementById("myDIV");
-                        if (x.style.display === "none") {
-                            x.style.display = "block";
-                        } else {
-                            x.style.display = "none";
-                        }
-                    }
-                </script>
-
                 <p style="font-size:20px;">Game Dev with love by <a class="lien" href="#">Berru</a></p>
             </div>
         </div>
-    
-        <script>
-            //démo
-            //algo indé te souhaite une bonne journée suivant l'heure
-            if (new Date().getHours() > 17) {
-                document.getElementById("demo").innerHTML = "Bonsoir et bienvenue dans le 'Life Game'.";
-                window.style("background-color:black");
-            }
-        </script>
-        <script>
-            function startTime() {
-                var today = new Date();
-                var h = today.getHours();
-                var m = today.getMinutes();
-                var s = today.getSeconds();
-                m = checkTime(m);
-                s = checkTime(s);
-                document.getElementById('time').innerHTML =
-                    h + ":" + m + ":" + s;
-                var t = setTimeout(startTime, 500);
-            }
-
-            function checkTime(i) {
-                if (i < 10) {
-                    i = "0" + i
-                }; // add zero in front of numbers < 10
-                return i;
-            }
-        </script>
-
 
         <body onload="startTime()">
-
             <div id="life" title="">
-
                 <span id="santé" title="Points de Santé"></span><br>
-
                 <span onclick="karma()" id="karma" title="Points de Karma"></span><br>
-
                 <span id="ego" title="Points d'ego"></span><br>
                 <span id="expé" title="Points d' expérience"></span><br>
                 <span id="détente" title="Points de Détente"></span><br>
                 <span id="time" style="color:var(--text-color);font-size:18px;font-family:sans-serif;"></span>
-
             </div>
             <div id="fondd" style="width:100%; height:auto; position:fixed;">
                 <img src="src-img\accessoireBackground\fond-retro.png">
             </div>
-            <!--https://github.com/berru-g/berru-g.io/blob/master/life-game/fond-retro.png?raw=true-->
             <a id="porte" href="https://codepen.io/h-lautre/full/WNrbawy" style="width:70px;height:120px; margin-top:310px; margin-left:1120px;border:2px solid #80eeae
         ;position:fixed;z-index:4;color:white;font-size:18px; ">open</a>
             <style>
@@ -117,36 +64,28 @@ SI ON MEURT, ( à force de mauvais choix) on se réincarne dans un autre perso e
             </p>
             <p id="flic" style='color:var(--text-color);font-size:24px;bottom:50px;position:fixed;z-index:6;background-color:#1a1a1a; '>
             </p>
-            <!---------//////////////////////DEALER////////////////////////C:\Users\glebe\Documents\PROG HTML\life-game/////////-->
             <!--https://github.com/berru-g/berru-g.io/blob/master/life-game/dealer.png?raw=true-->
             <div>
                 <btn onclick="myDealer()"><img id="dealer" src="src-img\npc\dealer.png" title="ouvre le dialogue">
                 </btn>
             </div>
-            <!--Deuxieme perso--------------------------------------C:\Users\glebe\Documents\PROG HTML\life-game------------------------------------------------------>
             <div>
-
                 <btn onclick="myflic()"><img id="flic-pas-bien" src="src-img\npc\flic.png" title="Chifoumi ?">
                     <!--https://github.com/berru-g/berru-g.io/blob/master/life-game/flic.png?raw=true-->
                 </btn>
             </div>
-            <!---------------------////////////////////////////:SPRITE//////////////////////////------------------------------------------------------->
             <div class="sprite right"></div>
             <canvas id="myCanvas" width="500" height="auto"></canvas>
             <audio id="myAudio" src="src-mp3\zen-mode.wav"></audio>
             <audio id="claque" src="src-mp3\claque.wav"></audio>
             <audio id="shot" src="src-mp3\shot.wav"></audio>
-
             <div id="controls">
                 <span>Ar <span>&lt;</span><span>&gt;</span>Av </span>
                 <span>Claque <span>&lt;</span><span>&gt;</span> Zen</span>
                 <p>Game Dev with love by <a class="lien" href="#">Berru</a></p>
             </div>
-   
-
         </body>
 </head>
-
 <footer>
     <div class="share">
         <!-----------------------------SHARE---------------------------------->
@@ -154,30 +93,23 @@ SI ON MEURT, ( à force de mauvais choix) on se réincarne dans un autre perso e
         <a target="_blank" title="Facebook" href="https://www.facebook.com/sharer.php?u=https://codepen.io/h-lautre/full/YzqQgoK" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;">
             <i class="fab fa-facebook" style='font-size:24px;color:var(--text-color);margin-left:20px;'></i></a>
         <!-- //Facebook -->
-
         <!-- Twitter -->
         <a target="_blank" title="Twitter" href="https://twitter.com/" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;">
             <i class="fab fa-twitter" style='font-size:24px;color:var(--text-color);margin-left:20px;'></i></a>
         <!-- //Twitter -->
-
         <!-- Google + -->
         <a target="_blank" title="Google +" href="https://plus.google.com/share?url=" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;">
             <i class="fab fa-google-plus" style='font-size:24px;color:var(--text-color);margin-left:20px;'></i></a>
         <!-- //Google + -->
-
         <!-- Linkedin -->
         <!---insere URL-->
         <a target="_blank" title="Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=" rel="nofollow" onclick="javascript:window.open(this.href, '','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img src="" alt="" title="Linkedin" />
             <i class="fab fa-linkedin" style='font-size:24px;color:var(--text-color);margin-left:20px;'></i></a>
         <!-- //Linkedin -->
-
         <!-- Email -->
         <a target="_blank" title="Envoyer par mail" href="mailto:?Subject=Regarde ça c'est cool !&amp;Body=regarde%20ce%20jeu !%20 " rel="nofollow"><img src="" alt="" title="Mail" />
             <i class="fas fa-paper-plane" style='font-size:24px;color:var(--text-color);margin-left:20px;'></i></a>
-        <!-- //Email -->
     </div>
-
-    <!------------SHARE------///////////////////////////////////////////////////////-->
 </footer>
 
 </html>
